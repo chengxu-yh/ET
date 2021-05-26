@@ -55,4 +55,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Model\Server.Model.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dream\AppStart\" />
+    <Folder Include="Dream\Handler\Map\Connect\" />
+    <Folder Include="Dream\Scene\" />
+    <Folder Include="Dream\Session\" />
+  </ItemGroup>
 </Project>

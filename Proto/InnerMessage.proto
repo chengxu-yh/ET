@@ -189,3 +189,64 @@ message G2M_SessionDisconnect // IActorLocationMessage
     int32 RpcId = 90;
     int64 ActorId = 94;
 }
+
+
+
+
+
+message G2M_DSessionDisconnect // IActorLocationMessage
+{
+    int32 RpcId = 90;
+    int64 ActorId = 94;
+}
+
+//ResponseType G2R_DGetLoginKey
+message R2G_DGetLoginKey // IActorRequest
+{
+    int32 RpcId = 90;
+    int64 ActorId = 93;
+    string Account = 1;
+}
+
+message G2R_DGetLoginKey // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+
+    int64 Key = 1;
+    int64 GateId = 2;
+}
+
+//ResponseType G2R_CreateAccount
+message R2G_CreateAccount // IActorRequest
+{
+    int32 RpcId = 90;
+    int64 ActorId = 93;
+    string Account = 1;
+	string Password = 2;
+}
+
+message G2R_CreateAccount // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+}
+
+//ResponseType M2G_CreateGamer
+message G2M_CreateGamer // IActorRequest
+{
+    int32 RpcId = 90;
+    int64 ActorId = 93;
+    int64 GamerId = 1;
+    int64 GateSessionId = 2;
+}
+
+message M2G_CreateGamer // IActorResponse
+{
+    int32 RpcId = 90;
+    int32 Error = 91;
+    string Message = 92;
+	GamerInfo SelfGamer = 1;
+}

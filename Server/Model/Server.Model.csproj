@@ -144,4 +144,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ThirdParty\Server.ThirdParty.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dream\Gamer\" />
+    <Folder Include="Dream\Unit\" />
+    <Folder Include="Dream\Event\" />
+    <Folder Include="Dream\Session\" />
+  </ItemGroup>
 </Project>

@@ -225,3 +225,86 @@ message G2C_PlayerInfo // IResponse
     repeated int32 TestRepeatedInt32 = 4;
     repeated int64 TestRepeatedInt64 = 5;
 }
+
+
+/// <summary>
+/// 登录认证服
+/// </summary>
+//ResponseType R2C_DLogin
+message C2R_DLogin // IRequest
+{
+	int32 RpcId = 90;
+	string	Account	 = 1;	// 帐号
+	string	Password = 2;	// 密码
+}
+
+message R2C_DLogin // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	string Address = 1;
+	int64 Key = 2;
+	int64 GateId = 3;
+}
+
+
+/// <summary>
+/// 登录网关服
+/// </summary>
+//ResponseType G2C_DLoginGate
+message C2G_DLoginGate // IRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;	// 帐号
+	int64 GateId = 2;
+}
+
+message G2C_DLoginGate // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int64 PlayerId = 1;
+}
+
+message GamerInfo
+{
+	int64 GamerId  = 1;
+    string GamerName = 2;
+}
+
+/// <summary>
+/// 进入大厅：随机选择一个MAP服
+/// </summary>
+//ResponseType G2C_EnterLobby
+message C2G_EnterLobby // IRequest
+{
+	int32 RpcId = 90;
+}
+
+message G2C_EnterLobby // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	GamerInfo SelfGamer = 1;
+}
+
+/// <summary>
+/// 进入关卡
+/// </summary>
+//ResponseType G2C_EnterLevel
+message C2G_EnterLevel // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 ActorId = 93;
+	string LevelName = 1;
+}
+
+message G2C_EnterLevel // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}

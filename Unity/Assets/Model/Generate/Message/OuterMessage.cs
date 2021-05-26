@@ -472,4 +472,161 @@ namespace ET
 
 	}
 
+/// <summary>
+/// 登录认证服
+/// </summary>
+	[ResponseType(typeof(R2C_DLogin))]
+	[Message(OuterOpcode.C2R_DLogin)]
+	[ProtoContract]
+	public partial class C2R_DLogin: Object, IRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public string Account { get; set; }
+
+		[ProtoMember(2)]
+		public string Password { get; set; }
+
+	}
+
+	[Message(OuterOpcode.R2C_DLogin)]
+	[ProtoContract]
+	public partial class R2C_DLogin: Object, IResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+		[ProtoMember(1)]
+		public string Address { get; set; }
+
+		[ProtoMember(2)]
+		public long Key { get; set; }
+
+		[ProtoMember(3)]
+		public long GateId { get; set; }
+
+	}
+
+/// <summary>
+/// 登录网关服
+/// </summary>
+	[ResponseType(typeof(G2C_DLoginGate))]
+	[Message(OuterOpcode.C2G_DLoginGate)]
+	[ProtoContract]
+	public partial class C2G_DLoginGate: Object, IRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(1)]
+		public long Key { get; set; }
+
+		[ProtoMember(2)]
+		public long GateId { get; set; }
+
+	}
+
+	[Message(OuterOpcode.G2C_DLoginGate)]
+	[ProtoContract]
+	public partial class G2C_DLoginGate: Object, IResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+		[ProtoMember(1)]
+		public long PlayerId { get; set; }
+
+	}
+
+	[Message(OuterOpcode.GamerInfo)]
+	[ProtoContract]
+	public partial class GamerInfo: Object
+	{
+		[ProtoMember(1)]
+		public long GamerId { get; set; }
+
+		[ProtoMember(2)]
+		public string GamerName { get; set; }
+
+	}
+
+/// <summary>
+/// 进入大厅：随机选择一个MAP服
+/// </summary>
+	[ResponseType(typeof(G2C_EnterLobby))]
+	[Message(OuterOpcode.C2G_EnterLobby)]
+	[ProtoContract]
+	public partial class C2G_EnterLobby: Object, IRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+	}
+
+	[Message(OuterOpcode.G2C_EnterLobby)]
+	[ProtoContract]
+	public partial class G2C_EnterLobby: Object, IResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+		[ProtoMember(1)]
+		public GamerInfo SelfGamer { get; set; }
+
+	}
+
+/// <summary>
+/// 进入关卡
+/// </summary>
+	[ResponseType(typeof(G2C_EnterLevel))]
+	[Message(OuterOpcode.C2G_EnterLevel)]
+	[ProtoContract]
+	public partial class C2G_EnterLevel: Object, IActorRequest
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(93)]
+		public long ActorId { get; set; }
+
+		[ProtoMember(1)]
+		public string LevelName { get; set; }
+
+	}
+
+	[Message(OuterOpcode.G2C_EnterLevel)]
+	[ProtoContract]
+	public partial class G2C_EnterLevel: Object, IActorResponse
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(91)]
+		public int Error { get; set; }
+
+		[ProtoMember(92)]
+		public string Message { get; set; }
+
+	}
+
 }

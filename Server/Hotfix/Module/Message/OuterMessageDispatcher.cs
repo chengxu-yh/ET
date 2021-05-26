@@ -31,10 +31,10 @@ namespace ET
 			{
 				case IActorLocationRequest actorLocationRequest: // gate session收到actor rpc消息，先向actor 发送rpc请求，再将请求结果返回客户端
 				{
-					long unitId = session.GetComponent<SessionPlayerComponent>().Player.UnitId;
+					long gamerId = session.GetComponent<DSessionPlayerComponent>().Player.GamerId;
 					int rpcId = actorLocationRequest.RpcId; // 这里要保存客户端的rpcId
 					long instanceId = session.InstanceId;
-					IResponse response = await ActorLocationSenderComponent.Instance.Call(unitId, actorLocationRequest);
+					IResponse response = await ActorLocationSenderComponent.Instance.Call(gamerId, actorLocationRequest);
 					response.RpcId = rpcId;
 					// session可能已经断开了，所以这里需要判断
 					if (session.InstanceId == instanceId)
@@ -45,8 +45,8 @@ namespace ET
 				}
 				case IActorLocationMessage actorLocationMessage:
 				{
-					long unitId = session.GetComponent<SessionPlayerComponent>().Player.UnitId;
-					ActorLocationSenderComponent.Instance.Send(unitId, actorLocationMessage);
+					long gamerId = session.GetComponent<DSessionPlayerComponent>().Player.GamerId;
+					ActorLocationSenderComponent.Instance.Send(gamerId, actorLocationMessage);
 					break;
 				}
 				case IActorRequest actorRequest:  // 分发IActorRequest消息，目前没有用到，需要的自己添加
