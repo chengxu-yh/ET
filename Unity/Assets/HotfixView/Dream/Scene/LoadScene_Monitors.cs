@@ -1,8 +1,8 @@
 ﻿namespace ET
 {
-    public class EnterMapFinish_LoadScene : AEvent<AppEventType.EnterMapFinish>
+    public class EnterSceneStart_LoadScene : AEvent<AppEventType.EnterSceneStart>
 	{
-		protected override async ETTask Run(AppEventType.EnterMapFinish args)
+		protected override async ETTask Run(AppEventType.EnterSceneStart args)
 		{
 			// 加载场景资源
 			await ResourcesComponent.Instance.LoadBundleAsync("map.unity3d");

@@ -8,10 +8,12 @@
 
         public struct LoginFinish { }
 
-        public struct EnterMapFinish 
+        public struct EnterSceneStart 
         {
             public string SceneName; 
         }
+
+        public struct EnterLevelFinish { }
 
         public struct LobbyEnterSceneFinish { }
     }

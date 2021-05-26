@@ -13,23 +13,9 @@
     {
         protected override async ETTask Run(AppEventType.LobbyEnterSceneFinish args)
         {
-            await UIHelper.Remove(Game.Scene, UIType.UILobby);
+            await UIHelper.Remove(Game.Scene, DUIType.UILobby);
         }
     }
-
-    public class DEnterMapFinish_RemoveLobbyUI : AEvent<AppEventType.EnterMapFinish>
-	{
-		protected override async ETTask Run(AppEventType.EnterMapFinish args)
-		{
-			// 加载场景资源
-			await ResourcesComponent.Instance.LoadBundleAsync("map.unity3d");
-
-			// 切换到map场景
-			SceneChangeComponent sceneChangeComponent = Game.Scene.GetComponent<SceneChangeComponent>();
-			await sceneChangeComponent.ChangeSceneAsync(args.SceneName);
-		}
-	}
-
 
 	// GUI创建与销毁事件处理函数
 	[UIEvent(DUIType.UILobby)]
@@ -39,7 +25,7 @@
 		{
 			UI ui = await DUIHelper.InstantiateFromBundle(uiComponent, DUIType.UILobby);
 
-			ui.AddComponent<DUILoginComponent>();
+			ui.AddComponent<DUILobbyComponent>();
 
 			return ui;
 		}

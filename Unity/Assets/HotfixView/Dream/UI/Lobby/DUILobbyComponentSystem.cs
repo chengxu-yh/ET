@@ -33,15 +33,12 @@ namespace ET
             }
             EnterLocked = true;
 
-            //string map = "Map_001";
-            //bool res = await DMapHelper.EnterMapAsync(ui.ZoneScene(), map);
-            //if (res == true)
-            //{
-            //    string scene = "Map";
-            //    await Game.EventSystem.Publish(new AppEventType.EnterMapFinish() { SceneName = scene });
+            int levelid = 1;
+            // 登录关卡
+            await LevelHelper.EnterLevelAsync(ui.ZoneScene(), levelid);
 
-            //    await Game.EventSystem.Publish(new AppEventType.LobbyEnterSceneFinish());
-            //}
+            // 触发从Lobby登录关卡成功消息
+            await Game.EventSystem.Publish(new AppEventType.LobbyEnterSceneFinish());
 
             EnterLocked = false;
         }
