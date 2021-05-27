@@ -44,7 +44,7 @@ namespace ET
             self.tcs = ETTask.Create(true);
             // 加载map
             self.loadMapOperation = SceneManager.LoadSceneAsync(sceneName);
-            //this.loadMapOperation.allowSceneActivation = false;
+            
             await self.tcs;
         }
         

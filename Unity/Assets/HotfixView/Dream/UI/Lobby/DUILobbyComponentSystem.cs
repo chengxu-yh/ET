@@ -11,27 +11,42 @@ namespace ET
             ReferenceCollector rc = self.GetParent<UI>().GameObject.GetComponent<ReferenceCollector>();
 
             self.enterMap = rc.Get<GameObject>("EnterMap");
-            self.enterMap.GetComponent<Button>().onClick.AddListener(self.EnterMap);
+            self.enterMap.GetComponent<Button>().onClick.AddListener(self.EnterLevel);
         }
     }
 
     public static class DUILobbyComponentSystem
     {
-        public static bool EnterLocked = false;
+        public static bool EnterLevelLocked = false;
 
-        public static void EnterMap(this DUILobbyComponent self)
+        public static void EnterLevel(this DUILobbyComponent self)
         {
             EnterMapAsync(self).Coroutine();
+        }
+
+        private static bool LockEnterLevel()
+        {
+            if (EnterLevelLocked == true)
+            {
+                return false;
+            }
+
+            EnterLevelLocked = true;
+            return true;
+        }
+
+        private static void UnLockEnterLevel()
+        {
+            EnterLevelLocked = false;
         }
 
         public static async ETVoid EnterMapAsync(DUILobbyComponent ui)
         {
             await ETTask.CompletedTask;
-            if (EnterLocked == true)
+            if (!LockEnterLevel())
             {
                 return;
             }
-            EnterLocked = true;
 
             int levelid = 1;
             // 登录关卡
@@ -40,7 +55,7 @@ namespace ET
             // 触发从Lobby登录关卡成功消息
             await Game.EventSystem.Publish(new AppEventType.LobbyEnterSceneFinish());
 
-            EnterLocked = false;
+            UnLockEnterLevel();
         }
     }
 }
