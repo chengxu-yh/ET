@@ -1,12 +1,10 @@
-﻿using System;
-using System.Net;
-
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ET
 {
-	public class DUILoginComponentAwakeSystem : AwakeSystem<DUILoginComponent>
+    public class DUILoginComponentAwakeSystem : AwakeSystem<DUILoginComponent>
 	{
 		public override void Awake(DUILoginComponent self)
 		{

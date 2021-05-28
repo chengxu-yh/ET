@@ -6,7 +6,7 @@ namespace ET
     {
         protected override async ETTask Run(AppEventType.ChangeRotation args)
         {
-            GameObjectComponent gameObjectComponent = args.Unit.GetComponent<GameObjectComponent>();
+            DGameObjectComponent gameObjectComponent = args.Unit.GetComponent<DGameObjectComponent>();
             if (gameObjectComponent == null)
             {
                 return;

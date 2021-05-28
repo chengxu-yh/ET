@@ -15,13 +15,8 @@ namespace ET
         {
             UShellConfig config = shell.GetComponent<UShellConfigComponent>().RoleConfig;
 
-            GameObject bundleGameObject = (GameObject)ResourcesComponent.Instance.GetAsset("Unit.unity3d", "Unit");
-            GameObject prefab = bundleGameObject.Get<GameObject>(config.Model);
-
-            GameObject go = UnityEngine.Object.Instantiate(prefab, GlobalComponent.Instance.Unit, true);
+            GameObject go = shell.AddComponent<DGameObjectComponent>().Init("Unit.unity3d", "Unit", config.Model, GlobalComponent.Instance.Unit);
             go.transform.position = shell.Position;
-
-            shell.AddComponent<GameObjectComponent>().GameObject = go;
 
             await ETTask.CompletedTask;
         }

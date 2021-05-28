@@ -15,14 +15,10 @@ namespace ET
         {
             URoleConfig config = role.GetComponent<URoleConfigComponent>().RoleConfig;
 
-            GameObject bundleGameObject = (GameObject)ResourcesComponent.Instance.GetAsset("Unit.unity3d", "Unit");
-            GameObject prefab = bundleGameObject.Get<GameObject>(config.Model);
-
-            GameObject go = UnityEngine.Object.Instantiate(prefab, GlobalComponent.Instance.Unit, true);
+            GameObject go = role.AddComponent<DGameObjectComponent>().Init("Unit.unity3d", "Unit", config.Model, GlobalComponent.Instance.Unit);
             go.transform.position = role.Position;
 
-            role.AddComponent<GameObjectComponent>().GameObject = go;
-            role.AddComponent<AnimatorComponent>();
+            role.AddComponent<DAnimatorComponent>();
 
             await ETTask.CompletedTask;
         }
