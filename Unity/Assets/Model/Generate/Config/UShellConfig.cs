@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using ProtoBuf;
 
@@ -84,9 +85,14 @@ namespace ET
 		public string TriggerEffect { get; set; }
 		[ProtoMember(7, IsRequired  = true)]
 		public int TriggerMaxCount { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(8, IsRequired  = true)]
 		public float MoveSpeed { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(9, IsRequired  = true)]
+		public float Gravity { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
+		[ProtoMember(10, IsRequired  = true)]
 		public float LifeTime { get; set; }
 
 

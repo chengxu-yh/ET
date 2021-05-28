@@ -175,6 +175,10 @@ namespace ET
                 {
                     continue;
                 }
+                if (headInfo.FieldType.Equals("float") || headInfo.FieldType.Equals("double"))
+                {
+                    sb.Append($"\t\t[BsonRepresentation(BsonType.Double, AllowTruncation = true)]\n");
+                }
                 sb.Append($"\t\t[ProtoMember({i + 1}, IsRequired  = true)]\n");
                 sb.Append($"\t\tpublic {headInfo.FieldType} {headInfo.FieldName} {{ get; set; }}\n");
             }

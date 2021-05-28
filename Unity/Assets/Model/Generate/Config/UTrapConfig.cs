@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using ProtoBuf;
 
@@ -84,10 +85,12 @@ namespace ET
 		public string AI { get; set; }
 		[ProtoMember(7, IsRequired  = true)]
 		public string Skills { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(8, IsRequired  = true)]
 		public float AttackSpeed { get; set; }
 		[ProtoMember(9, IsRequired  = true)]
 		public int HPDamage { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(10, IsRequired  = true)]
 		public float LifeTime { get; set; }
 

@@ -6,12 +6,12 @@ namespace ET
     {
         protected override async ETTask Run(AppEventType.AfterRoleCreate args)
         {
-            CreateUnitViewAsync(args.Unit).Coroutine();
+            CreateRoleViewAsync(args.Unit).Coroutine();
 
             await ETTask.CompletedTask;
         }
 
-        protected async ETTask CreateUnitViewAsync(DUnit role)
+        private async ETTask CreateRoleViewAsync(DUnit role)
         {
             URoleConfig config = role.GetComponent<URoleConfigComponent>().RoleConfig;
 
