@@ -7,19 +7,19 @@ namespace ET
 {
     [ProtoContract]
     [Config]
-    public partial class StartSceneConfigCategory : ProtoObject
+    public partial class SkillConfigCategory : ProtoObject
     {
-        public static StartSceneConfigCategory Instance;
+        public static SkillConfigCategory Instance;
 		
         [ProtoIgnore]
         [BsonIgnore]
-        private Dictionary<int, StartSceneConfig> dict = new Dictionary<int, StartSceneConfig>();
+        private Dictionary<int, SkillConfig> dict = new Dictionary<int, SkillConfig>();
 		
         [BsonElement]
         [ProtoMember(1)]
-        private List<StartSceneConfig> list = new List<StartSceneConfig>();
+        private List<SkillConfig> list = new List<SkillConfig>();
 		
-        public StartSceneConfigCategory()
+        public SkillConfigCategory()
         {
             Instance = this;
         }
@@ -27,7 +27,7 @@ namespace ET
 		[ProtoAfterDeserialization]
         public void AfterDeserialization()
         {
-            foreach (StartSceneConfig config in list)
+            foreach (SkillConfig config in list)
             {
                 this.dict.Add(config.Id, config);
             }
@@ -35,13 +35,13 @@ namespace ET
             this.EndInit();
         }
 		
-        public StartSceneConfig Get(int id)
+        public SkillConfig Get(int id)
         {
-            this.dict.TryGetValue(id, out StartSceneConfig item);
+            this.dict.TryGetValue(id, out SkillConfig item);
 
             if (item == null)
             {
-                throw new Exception($"配置找不到，配置表名: {nameof (StartSceneConfig)}，配置id: {id}");
+                throw new Exception($"配置找不到，配置表名: {nameof (SkillConfig)}，配置id: {id}");
             }
 
             return item;
@@ -52,12 +52,12 @@ namespace ET
             return this.dict.ContainsKey(id);
         }
 
-        public Dictionary<int, StartSceneConfig> GetAll()
+        public Dictionary<int, SkillConfig> GetAll()
         {
             return this.dict;
         }
 
-        public StartSceneConfig GetOne()
+        public SkillConfig GetOne()
         {
             if (this.dict == null || this.dict.Count <= 0)
             {
@@ -68,20 +68,24 @@ namespace ET
     }
 
     [ProtoContract]
-	public partial class StartSceneConfig: ProtoObject, IConfig
+	public partial class SkillConfig: ProtoObject, IConfig
 	{
 		[ProtoMember(1, IsRequired  = true)]
 		public int Id { get; set; }
 		[ProtoMember(2, IsRequired  = true)]
-		public int Process { get; set; }
-		[ProtoMember(3, IsRequired  = true)]
-		public int Zone { get; set; }
-		[ProtoMember(4, IsRequired  = true)]
-		public string SceneType { get; set; }
-		[ProtoMember(5, IsRequired  = true)]
 		public string Name { get; set; }
+		[ProtoMember(3, IsRequired  = true)]
+		public string Desc { get; set; }
+		[ProtoMember(4, IsRequired  = true)]
+		public string Icon { get; set; }
+		[ProtoMember(5, IsRequired  = true)]
+		public float MaxRadius { get; set; }
 		[ProtoMember(6, IsRequired  = true)]
-		public int OuterPort { get; set; }
+		public float SkillTime { get; set; }
+		[ProtoMember(7, IsRequired  = true)]
+		public string SkillTree { get; set; }
+		[ProtoMember(8, IsRequired  = true)]
+		public string LevelData { get; set; }
 
 
 		[ProtoAfterDeserialization]

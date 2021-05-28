@@ -7,19 +7,19 @@ namespace ET
 {
     [ProtoContract]
     [Config]
-    public partial class StartZoneConfigCategory : ProtoObject
+    public partial class UShellConfigCategory : ProtoObject
     {
-        public static StartZoneConfigCategory Instance;
+        public static UShellConfigCategory Instance;
 		
         [ProtoIgnore]
         [BsonIgnore]
-        private Dictionary<int, StartZoneConfig> dict = new Dictionary<int, StartZoneConfig>();
+        private Dictionary<int, UShellConfig> dict = new Dictionary<int, UShellConfig>();
 		
         [BsonElement]
         [ProtoMember(1)]
-        private List<StartZoneConfig> list = new List<StartZoneConfig>();
+        private List<UShellConfig> list = new List<UShellConfig>();
 		
-        public StartZoneConfigCategory()
+        public UShellConfigCategory()
         {
             Instance = this;
         }
@@ -27,7 +27,7 @@ namespace ET
 		[ProtoAfterDeserialization]
         public void AfterDeserialization()
         {
-            foreach (StartZoneConfig config in list)
+            foreach (UShellConfig config in list)
             {
                 this.dict.Add(config.Id, config);
             }
@@ -35,13 +35,13 @@ namespace ET
             this.EndInit();
         }
 		
-        public StartZoneConfig Get(int id)
+        public UShellConfig Get(int id)
         {
-            this.dict.TryGetValue(id, out StartZoneConfig item);
+            this.dict.TryGetValue(id, out UShellConfig item);
 
             if (item == null)
             {
-                throw new Exception($"配置找不到，配置表名: {nameof (StartZoneConfig)}，配置id: {id}");
+                throw new Exception($"配置找不到，配置表名: {nameof (UShellConfig)}，配置id: {id}");
             }
 
             return item;
@@ -52,12 +52,12 @@ namespace ET
             return this.dict.ContainsKey(id);
         }
 
-        public Dictionary<int, StartZoneConfig> GetAll()
+        public Dictionary<int, UShellConfig> GetAll()
         {
             return this.dict;
         }
 
-        public StartZoneConfig GetOne()
+        public UShellConfig GetOne()
         {
             if (this.dict == null || this.dict.Count <= 0)
             {
@@ -68,14 +68,26 @@ namespace ET
     }
 
     [ProtoContract]
-	public partial class StartZoneConfig: ProtoObject, IConfig
+	public partial class UShellConfig: ProtoObject, IConfig
 	{
 		[ProtoMember(1, IsRequired  = true)]
 		public int Id { get; set; }
 		[ProtoMember(2, IsRequired  = true)]
-		public string DBConnection { get; set; }
+		public string Name { get; set; }
 		[ProtoMember(3, IsRequired  = true)]
-		public string DBName { get; set; }
+		public string Desc { get; set; }
+		[ProtoMember(4, IsRequired  = true)]
+		public string Model { get; set; }
+		[ProtoMember(5, IsRequired  = true)]
+		public string AI { get; set; }
+		[ProtoMember(6, IsRequired  = true)]
+		public string TriggerEffect { get; set; }
+		[ProtoMember(7, IsRequired  = true)]
+		public int TriggerMaxCount { get; set; }
+		[ProtoMember(8, IsRequired  = true)]
+		public float MoveSpeed { get; set; }
+		[ProtoMember(9, IsRequired  = true)]
+		public float LifeTime { get; set; }
 
 
 		[ProtoAfterDeserialization]

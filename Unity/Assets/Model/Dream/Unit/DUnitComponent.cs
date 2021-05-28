@@ -5,7 +5,6 @@ namespace ET
 
     public class DUnitComponent: Entity
 	{
-		public Dictionary<long, Unit> idUnits = new Dictionary<long, Unit>();
-		public Unit MyUnit;
+		public Dictionary<long, DUnit> idUnits = new Dictionary<long, DUnit>();
 	}
 }

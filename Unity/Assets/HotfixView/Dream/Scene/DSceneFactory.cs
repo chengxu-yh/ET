@@ -11,9 +11,9 @@ namespace ET
             mainScene.AddComponent<OperaComponent>();
 
             mainScene.AddComponent<GamerComponent>(); 
+            mainScene.AddComponent<DUnitComponent>();
 
-            mainScene.AddComponent<UnitComponent>();
-            mainScene.AddComponent<AIComponent, int>(1);
+            // mainScene.AddComponent<AIComponent, int>(1);
 
             // 初始化UI层
             mainScene.AddComponent<UIEventComponent>();

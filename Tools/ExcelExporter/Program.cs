@@ -80,12 +80,16 @@ namespace ET
                     using Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     using ExcelPackage p = new ExcelPackage(stream);
                     string name = Path.GetFileNameWithoutExtension(path);
-                
-                    ExportExcelClass(p, name, ConfigType.Client);
-                    ExportExcelClass(p, name, ConfigType.Server);
-                
-                    ExportExcelJson(p, name, ConfigType.Client);
-                    ExportExcelJson(p, name, ConfigType.Server);
+
+                    if (ExportExcelClass(p, name, ConfigType.Client))
+                    {
+                        ExportExcelJson(p, name, ConfigType.Client);
+                    }
+
+                    if(ExportExcelClass(p, name, ConfigType.Server))
+                    {
+                        ExportExcelJson(p, name, ConfigType.Server);
+                    }
                 }
             
                 ExportExcelProtobuf(ConfigType.Client);
@@ -100,19 +104,35 @@ namespace ET
         }
 
 #region 导出class
-        static void ExportExcelClass(ExcelPackage p, string name, ConfigType configType)
+        static bool ExportExcelClass(ExcelPackage p, string name, ConfigType configType)
         {
             List<HeadInfo> classField = new List<HeadInfo>();
             HashSet<string> uniqeField = new HashSet<string>();
             foreach (ExcelWorksheet worksheet in p.Workbook.Worksheets)
             {
-                ExportSheetClass(worksheet, classField, uniqeField, configType);
+                if (!ExportSheetClass(worksheet, classField, uniqeField, configType))
+                {
+                    return false;
+                }
             }
             ExportClass(name, classField, configType);
+
+            return true;
         }
         
-        static void ExportSheetClass(ExcelWorksheet worksheet, List<HeadInfo> classField, HashSet<string> uniqeField, ConfigType configType)
+        static bool ExportSheetClass(ExcelWorksheet worksheet, List<HeadInfo> classField, HashSet<string> uniqeField, ConfigType configType)
         {
+            string cs = worksheet.Cells[1, 1].Text.Trim().ToLower();
+            if (configType == ConfigType.Client && !cs.Contains('c'))
+            {
+                return false;
+            }
+
+            if (configType == ConfigType.Server && !cs.Contains('s'))
+            {
+                return false;
+            }
+
             const int row = 2;
             for (int col = 3; col <= worksheet.Dimension.End.Column; ++col)
             {
@@ -131,6 +151,8 @@ namespace ET
 
                 classField.Add(new HeadInfo(fieldCS, fieldDesc, fieldName, fieldType));
             }
+
+            return true;
         }
 
         static void ExportClass(string protoName, List<HeadInfo> classField, ConfigType configType)

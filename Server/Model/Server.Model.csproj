@@ -149,5 +149,6 @@
     <Folder Include="Dream\Unit\" />
     <Folder Include="Dream\Event\" />
     <Folder Include="Dream\Session\" />
+    <Folder Include="Generate\Config\" />
   </ItemGroup>
 </Project>
