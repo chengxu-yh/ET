@@ -308,3 +308,18 @@ message G2C_EnterLevel // IActorResponse
 	int32 Error = 91;
 	string Message = 92;
 }
+
+message DUnitInfo
+{
+	int64 UnitId  = 1;
+	int64 GamerId = 2;
+    int32 ConfigId = 3;
+	float PX = 4;
+	float PY = 5;
+	float PZ = 6;
+	float RX = 7;
+	float RY = 8;
+	float RZ = 9;
+	float RW = 10;
+	int32 Camp = 11;
+}

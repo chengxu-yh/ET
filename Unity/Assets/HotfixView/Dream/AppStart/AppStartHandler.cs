@@ -18,7 +18,8 @@ namespace ET
             
             Game.Scene.AddComponent<OpcodeTypeComponent>();
             Game.Scene.AddComponent<MessageDispatcherComponent>();
-            
+            Game.Scene.AddComponent<NumericWatcherComponent>();
+
             Game.Scene.AddComponent<NetThreadComponent>();
 
             Game.Scene.AddComponent<ZoneSceneManagerComponent>();

@@ -27,5 +27,19 @@
             public DUnit Unit;
         }
 
+        public struct AfterRoleCreate
+        {
+            public DUnit Unit;
+        }
+
+        public struct AfterShellCreate
+        {
+            public DUnit Unit;
+        }
+
+        public struct AfterTrapCreate
+        {
+            public DUnit Unit;
+        }
     }
 }

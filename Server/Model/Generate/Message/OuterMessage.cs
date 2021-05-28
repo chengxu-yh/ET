@@ -629,4 +629,43 @@ namespace ET
 
 	}
 
+	[Message(OuterOpcode.DUnitInfo)]
+	[ProtoContract]
+	public partial class DUnitInfo: Object
+	{
+		[ProtoMember(1)]
+		public long UnitId { get; set; }
+
+		[ProtoMember(2)]
+		public long GamerId { get; set; }
+
+		[ProtoMember(3)]
+		public int ConfigId { get; set; }
+
+		[ProtoMember(4)]
+		public float PX { get; set; }
+
+		[ProtoMember(5)]
+		public float PY { get; set; }
+
+		[ProtoMember(6)]
+		public float PZ { get; set; }
+
+		[ProtoMember(7)]
+		public float RX { get; set; }
+
+		[ProtoMember(8)]
+		public float RY { get; set; }
+
+		[ProtoMember(9)]
+		public float RZ { get; set; }
+
+		[ProtoMember(10)]
+		public float RW { get; set; }
+
+		[ProtoMember(11)]
+		public int Camp { get; set; }
+
+	}
+
 }

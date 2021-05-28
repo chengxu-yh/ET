@@ -114,7 +114,7 @@ namespace ET
 			int add = final * 10 + 2;
 			int pct = final * 10 + 3;
 
-			long old = this.NumericDic[final];
+			long old = GetByKey(final);
 			long result = (long)( (this.GetByKey(bas) + this.GetByKey(add)) * (1 + this.GetAsFloat(pct)));
 
 			this.NumericDic[final] = result;
