@@ -54,5 +54,15 @@
         {
             public DUnit Unit;
         }
+
+        public struct MoveStart
+        {
+            public DUnit Unit;
+        }
+
+        public struct MoveStop
+        {
+            public DUnit Unit;
+        }
     }
 }

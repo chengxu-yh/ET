@@ -9,7 +9,7 @@ namespace ET
             zoneScene.AddComponent<ZoneSceneFlagComponent>();
             zoneScene.AddComponent<NetKcpComponent>();
             zoneScene.AddComponent<SceneChangeComponent>();
-            zoneScene.AddComponent<OperaComponent>();
+            zoneScene.AddComponent<DOperaComponent>();
 
             zoneScene.AddComponent<GamerComponent>();
             zoneScene.AddComponent<DUnitComponent>();

@@ -15,6 +15,8 @@ namespace ET
             role.AddComponent<URoleConfigComponent, int>(unitInfo.ConfigId);
             // 阵营信息
             role.AddComponent<CampComponent, long, int>(unitInfo.GamerId, unitInfo.Camp);
+            // 移动组件
+            role.AddComponent<DMoveComponent>();
             // 数值信息
             InitRoleNumberic(role);
 
