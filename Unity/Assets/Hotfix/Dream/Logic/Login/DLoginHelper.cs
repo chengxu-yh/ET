@@ -28,7 +28,7 @@ namespace ET
 
                 await LobbyHelper.EnterLobbyAsync(zoneScene);
 
-                await Game.EventSystem.Publish(new AppEventType.LoginFinish());
+                await Game.EventSystem.Publish(new AppEventType.LoginFinish() { ZoneScene = zoneScene });
             }
             catch (Exception e)
             {

@@ -13,7 +13,7 @@ namespace ET
 
                 // 2 切换地图
                 string scene = "Map";
-                await Game.EventSystem.Publish(new AppEventType.EnterSceneStart() { SceneName = scene });
+                await Game.EventSystem.Publish(new AppEventType.EnterSceneStart() { ZoneScene = zoneScene, SceneName = scene });
 
                 // 3 创建场景元素
 

@@ -4,18 +4,31 @@
     {
         public struct AppStart { }
 
-        public struct AppStartInitFinish { }
+        public struct AppStartInitFinish 
+        {
+            public Scene ZoneScene;
+        }
 
-        public struct LoginFinish { }
+        public struct LoginFinish 
+        {
+            public Scene ZoneScene;
+        }
 
         public struct EnterSceneStart 
         {
+            public Scene ZoneScene;
             public string SceneName; 
         }
 
-        public struct LobbyEnterSceneFinish { }
+        public struct LobbyEnterSceneFinish 
+        {
+            public Scene ZoneScene;
+        }
 
-        public struct EnterLevelFinish { }
+        public struct EnterLevelFinish 
+        {
+            public Scene ZoneScene;
+        }
 
         public struct ChangePosition
         {

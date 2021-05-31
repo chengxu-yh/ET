@@ -53,7 +53,7 @@ namespace ET
             await LevelHelper.EnterLevelAsync(ui.ZoneScene(), levelid);
 
             // 触发从Lobby登录关卡成功消息
-            await Game.EventSystem.Publish(new AppEventType.LobbyEnterSceneFinish());
+            await Game.EventSystem.Publish(new AppEventType.LobbyEnterSceneFinish() { ZoneScene = ui.ZoneScene() });
 
             UnLockEnterLevel();
         }

@@ -30,9 +30,9 @@ namespace ET
 
             ResourcesComponent.Instance.LoadBundle("unit.unity3d");
 
-            DSceneFactory.InitMainScene();
+            Scene zoneScene = DSceneFactory.CreateZoneScene(1, "Process");
 
-            await Game.EventSystem.Publish(new AppEventType.AppStartInitFinish());
+            await Game.EventSystem.Publish(new AppEventType.AppStartInitFinish() { ZoneScene = zoneScene });
         }
     }
 }

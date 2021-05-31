@@ -2,24 +2,25 @@ namespace ET
 {
     public static class DSceneFactory
     {
-        public static Scene InitMainScene()
+        public static Scene CreateZoneScene(int zone, string name)
         {
-            Scene mainScene = Game.Scene;
-            mainScene.AddComponent<ZoneSceneFlagComponent>();
-            mainScene.AddComponent<NetKcpComponent>();
-            mainScene.AddComponent<SceneChangeComponent>();
-            mainScene.AddComponent<OperaComponent>();
+            Scene zoneScene = EntitySceneFactory.CreateScene(Game.IdGenerater.GenerateId(), zone, SceneType.Zone, name, Game.Scene);
+            
+            zoneScene.AddComponent<ZoneSceneFlagComponent>();
+            zoneScene.AddComponent<NetKcpComponent>();
+            zoneScene.AddComponent<SceneChangeComponent>();
+            zoneScene.AddComponent<OperaComponent>();
 
-            mainScene.AddComponent<GamerComponent>(); 
-            mainScene.AddComponent<DUnitComponent>();
+            zoneScene.AddComponent<GamerComponent>();
+            zoneScene.AddComponent<DUnitComponent>();
 
             // mainScene.AddComponent<AIComponent, int>(1);
 
             // 初始化UI层
-            mainScene.AddComponent<UIEventComponent>();
-            mainScene.AddComponent<UIComponent>();
+            zoneScene.AddComponent<UIEventComponent>();
+            zoneScene.AddComponent<UIComponent>();
 
-            return mainScene;
+            return zoneScene;
         }
     }
 }

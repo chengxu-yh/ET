@@ -5,7 +5,7 @@
 	{
 		protected override async ETTask Run(AppEventType.LoginFinish args)
 		{
-			await UIHelper.Create(Game.Scene, DUIType.UILobby);
+			await UIHelper.Create(args.ZoneScene, DUIType.UILobby);
 		}
 	}
 
@@ -13,7 +13,7 @@
     {
         protected override async ETTask Run(AppEventType.LobbyEnterSceneFinish args)
         {
-            await UIHelper.Remove(Game.Scene, DUIType.UILobby);
+            await UIHelper.Remove(args.ZoneScene, DUIType.UILobby);
         }
     }
 

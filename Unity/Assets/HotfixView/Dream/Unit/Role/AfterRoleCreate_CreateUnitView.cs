@@ -16,6 +16,7 @@ namespace ET
             URoleConfig config = role.GetComponent<URoleConfigComponent>().RoleConfig;
 
             GameObject go = role.AddComponent<DGameObjectComponent>().Init("Unit.unity3d", "Unit", config.Model, GlobalComponent.Instance.Unit);
+            go.AddComponent<ComponentView>().Component = role;
             go.transform.position = role.Position;
 
             role.AddComponent<DAnimatorComponent>();

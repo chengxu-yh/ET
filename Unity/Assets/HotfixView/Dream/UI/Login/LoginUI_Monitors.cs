@@ -7,7 +7,7 @@ namespace ET
 	{
 		protected override async ETTask Run(AppEventType.AppStartInitFinish args)
 		{
-			await DUIHelper.Create(Game.Scene, DUIType.UILogin);
+			await DUIHelper.Create(args.ZoneScene, DUIType.UILogin);
 		}
 	}
 
@@ -17,7 +17,7 @@ namespace ET
 	{
 		protected override async ETTask Run(AppEventType.LoginFinish args)
 		{
-			await DUIHelper.Remove(Game.Scene, DUIType.UILogin);
+			await DUIHelper.Remove(args.ZoneScene, DUIType.UILogin);
 		}
 	}
 
