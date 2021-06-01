@@ -26,14 +26,14 @@ namespace ET
                     msg.Ys.Add(meshPath.corners[i].y);
                     msg.Zs.Add(meshPath.corners[i].z);
                 }
-                Debug.Log("move start");
+                
                 unit.Domain.GetComponent<SessionComponent>().Session.Send(msg);
 
                 ObjectWait objectWait = unit.GetComponent<ObjectWait>();
                 objectWait.Notify(new WaitType.Wait_UnitStop() { Error = WaitTypeError.Cancel });
 
                 WaitType.Wait_UnitStop waitUnitStop = await objectWait.Wait<WaitType.Wait_UnitStop>(cancellationToken);
-                Debug.Log("move End");
+                
                 return waitUnitStop.Error;
             }
             else
