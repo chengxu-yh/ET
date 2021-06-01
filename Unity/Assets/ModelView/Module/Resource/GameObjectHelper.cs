@@ -5,6 +5,33 @@ namespace ET
 {
     public static class GameObjectHelper
     {
+        public static T Ensure<T>(this GameObject gameObject) where T : Component
+        {
+            if (gameObject)
+            {
+                var t = gameObject.GetComponent<T>();
+
+                if (!t)
+                {
+                    t = gameObject.AddComponent<T>();
+                }
+
+                return t;
+            }
+
+            return null;
+        }
+
+        public static T Ensure<T>(this Component component) where T : Component
+        {
+            if (component)
+            {
+                return Ensure<T>(component.gameObject);
+            }
+
+            return null;
+        }
+
         public static T Get<T>(this GameObject gameObject, string key) where T : class
         {
             try

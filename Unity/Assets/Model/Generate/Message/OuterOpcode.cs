@@ -39,5 +39,7 @@ namespace ET
 		 public const ushort C2G_EnterLevel = 20035;
 		 public const ushort G2C_EnterLevel = 20036;
 		 public const ushort DUnitInfo = 20037;
+		 public const ushort C2M_DPathfindingResult = 20038;
+		 public const ushort M2C_DPathfindingResult = 20039;
 	}
 }

@@ -33,6 +33,22 @@ namespace ET
                     self.ClickPoint = hit.point;
                 }
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 1000, self.mapMask))
+                {
+                    self.ClickPoint = hit.point;
+                    
+                    DUnit[] units = self.DomainScene().GetComponent<DUnitComponent>().GetAll();
+                    for (int i = 0; i < units.Length; i++)
+                    {
+                        units[i].MoveActionAsync(self.ClickPoint).Coroutine();
+                    }
+                }
+            }
         }
 
     }

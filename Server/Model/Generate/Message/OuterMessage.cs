@@ -668,4 +668,73 @@ namespace ET
 
 	}
 
+/// <summary>
+/// 寻路信息
+/// </summary>
+	[Message(OuterOpcode.C2M_DPathfindingResult)]
+	[ProtoContract]
+	public partial class C2M_DPathfindingResult: Object, IActorLocationMessage
+	{
+		[ProtoMember(90)]
+		public int RpcId { get; set; }
+
+		[ProtoMember(93)]
+		public long ActorId { get; set; }
+
+		[ProtoMember(1)]
+		public long Id { get; set; }
+
+		[ProtoMember(2)]
+		public float X { get; set; }
+
+		[ProtoMember(3)]
+		public float Y { get; set; }
+
+		[ProtoMember(4)]
+		public float Z { get; set; }
+
+		[ProtoMember(5)]
+		public List<float> Xs = new List<float>();
+
+		[ProtoMember(6)]
+		public List<float> Ys = new List<float>();
+
+		[ProtoMember(7)]
+		public List<float> Zs = new List<float>();
+
+	}
+
+/// <summary>
+/// 寻路信息
+/// </summary>
+	[Message(OuterOpcode.M2C_DPathfindingResult)]
+	[ProtoContract]
+	public partial class M2C_DPathfindingResult: Object, IActorMessage
+	{
+		[ProtoMember(93)]
+		public long ActorId { get; set; }
+
+		[ProtoMember(1)]
+		public long Id { get; set; }
+
+		[ProtoMember(2)]
+		public float X { get; set; }
+
+		[ProtoMember(3)]
+		public float Y { get; set; }
+
+		[ProtoMember(4)]
+		public float Z { get; set; }
+
+		[ProtoMember(5)]
+		public List<float> Xs = new List<float>();
+
+		[ProtoMember(6)]
+		public List<float> Ys = new List<float>();
+
+		[ProtoMember(7)]
+		public List<float> Zs = new List<float>();
+
+	}
+
 }

@@ -323,3 +323,40 @@ message DUnitInfo
 	float RW = 10;
 	int32 Camp = 11;
 }
+
+/// <summary>
+/// 寻路信息
+/// </summary>
+message C2M_DPathfindingResult // IActorLocationMessage
+{
+	int32 RpcId = 90;
+	int64 ActorId = 93;
+		
+	int64 Id = 1;
+
+	float X = 2;
+	float Y = 3;
+	float Z = 4;
+	
+	repeated float Xs = 5;
+	repeated float Ys = 6;
+	repeated float Zs = 7;
+}
+
+/// <summary>
+/// 寻路信息
+/// </summary>
+message M2C_DPathfindingResult // IActorMessage
+{
+	int64 ActorId = 93;
+	
+	int64 Id = 1;
+
+	float X = 2;
+	float Y = 3;
+	float Z = 4;
+	
+	repeated float Xs = 5;
+	repeated float Ys = 6;
+	repeated float Zs = 7;
+}

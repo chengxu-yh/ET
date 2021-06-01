@@ -17,6 +17,10 @@ namespace ET
             role.AddComponent<CampComponent, long, int>(unitInfo.GamerId, unitInfo.Camp);
             // 移动组件
             role.AddComponent<DMoveComponent>();
+            // 旋转组件
+            role.AddComponent<TurnComponent>();
+            // 寻路组件
+            role.AddComponent<PathComponent>();
             // 数值信息
             InitRoleNumberic(role);
 

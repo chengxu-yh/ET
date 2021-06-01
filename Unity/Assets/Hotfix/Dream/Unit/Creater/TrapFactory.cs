@@ -15,6 +15,8 @@ namespace ET
             trap.AddComponent<UTrapConfigComponent, int>(unitInfo.ConfigId);
             // 阵营信息
             trap.AddComponent<CampComponent, long, int>(unitInfo.GamerId, unitInfo.Camp);
+            // 旋转组件
+            trap.AddComponent<TurnComponent>();
             // 数值信息
             InitTrapNumberic(trap);
 
