@@ -46,7 +46,6 @@ namespace ET
                     }
                 }
 
-
                 unit.GetComponent<TurnComponent>().Turn(v);
 
                 if (await unit.GetComponent<DMoveComponent>().MoveToAsync(v, speed, cancellationToken) == false)
@@ -80,7 +79,11 @@ namespace ET
             }
             self.ServerPos = servierpos;
 
+            await Game.EventSystem.Publish(new AppEventType.MoveStart() { Unit = self.GetParent<DUnit>() });
+
             bool res = await self.StartMoveImp(self.CancellationTokenSource);
+
+            await Game.EventSystem.Publish(new AppEventType.MoveStop() { Unit = self.GetParent<DUnit>() });
 
             self.CancellationTokenSource = null;
 
