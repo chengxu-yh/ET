@@ -4,6 +4,7 @@
     {
         UnitRoleConfig,
         UnitShellConfig,
+        UnitTowerConfig,
         UnitTrapConfig,
     }
 }

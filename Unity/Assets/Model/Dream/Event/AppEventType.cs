@@ -45,6 +45,11 @@
             public DUnit Unit;
         }
 
+        public struct AfterTowerCreate
+        {
+            public DUnit Unit;
+        }
+
         public struct AfterShellCreate
         {
             public DUnit Unit;

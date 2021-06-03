@@ -1,6 +1,6 @@
 ﻿namespace ET
 {
-    public class UnitConfigComponentAwakeSystem : AwakeSystem<URoleConfigComponent, int>
+    public class URoleConfigComponentAwakeSystem : AwakeSystem<URoleConfigComponent, int>
     {
         public override void Awake(URoleConfigComponent self,int configid)
         {

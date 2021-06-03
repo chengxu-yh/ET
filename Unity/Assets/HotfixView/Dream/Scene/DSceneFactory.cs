@@ -9,6 +9,7 @@ namespace ET
             ResourcesComponent.Instance.LoadBundle("Role.unity3d");
             ResourcesComponent.Instance.LoadBundle("Shell.unity3d");
             ResourcesComponent.Instance.LoadBundle("Trap.unity3d");
+            ResourcesComponent.Instance.LoadBundle("Tower.unity3d");
 
             zoneScene.AddComponent<ZoneSceneFlagComponent>();
             zoneScene.AddComponent<NetKcpComponent>();
