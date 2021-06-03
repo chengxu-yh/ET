@@ -19,6 +19,9 @@ namespace ET
             go.AddComponent<ComponentView>().Component = role;
             go.transform.position = role.Position;
 
+            // 声音组件
+            role.AddComponent<SoundComponent>();
+            // 动画组件
             role.AddComponent<DAnimatorComponent>();
 
             await ETTask.CompletedTask;

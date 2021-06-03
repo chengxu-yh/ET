@@ -6,10 +6,9 @@ namespace ET
     {
         public override void Destroy(DGameObjectComponent self)
         {
-            GameObjectPool.Instance.Recycle(self.GameObject, self.type);
+            GameObjectPool.Instance.Recycle(self.GameObject);
 
             self.GameObject = null;
-            self.type = null;
         }
     }
 
@@ -17,9 +16,7 @@ namespace ET
     {
         public static GameObject Init(this DGameObjectComponent self, string bundle, string variant, string name, Transform parent = null)
         {
-            self.type = bundle + variant + name;
-
-            GameObject gameobject = GameObjectPool.Instance.Fetch(bundle, variant, name, self.type, parent);
+            GameObject gameobject = GameObjectPool.Instance.Fetch(bundle, variant, name, parent);
 
             self.GameObject = gameobject;
 

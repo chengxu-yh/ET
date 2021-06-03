@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &494012588960168698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3416013698503095085}
+  - component: {fileID: 6138717526473635051}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3416013698503095085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494012588960168698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6138717526473635051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494012588960168698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502d8cafd6a5a0447ab1db9a24cdcb10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - key: Map_BGM_01
+    gameObject: {fileID: 2915056148371004992, guid: c9c9a32e1e7405744a8cbe9ee6cd8151,
+      type: 3}
+  - key: Skeleton_Death
+    gameObject: {fileID: 4173073425249941564, guid: 920ca6312936edf49a50b5b5a366edf7,
+      type: 3}
+  - key: Skeleton_Run
+    gameObject: {fileID: 1805379696912014305, guid: ef42272c6bfe3ab4884ce446a474ef9a,
+      type: 3}
+  - key: Skeleton_Skill1
+    gameObject: {fileID: 4801254131127346979, guid: 8f7b6f8133a044f47b39394c08e4dcd5,
+      type: 3}
+  - key: Skeleton_Skill2
+    gameObject: {fileID: 2217295606649052668, guid: 14573cc0c9e8c7d43aa3006e2f6b8335,
+      type: 3}

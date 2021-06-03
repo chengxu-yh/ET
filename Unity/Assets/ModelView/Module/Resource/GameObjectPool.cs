@@ -75,9 +75,11 @@ namespace ET
 
         public readonly Dictionary<string, GameObjectQueue> dictionary = new Dictionary<string, GameObjectQueue>();
 
-        public GameObject Fetch(string bundle, string variant, string name, string type, Transform parent = null)
+        public GameObject Fetch(string bundle, string variant, string name, Transform parent = null)
         {
             GameObject obj;
+            string type = bundle + variant + name;
+
             if (!this.dictionary.TryGetValue(type, out GameObjectQueue queue))
             {
                 obj = GameObjectHelper.CreateInstance(bundle, variant, name, parent);
@@ -92,16 +94,17 @@ namespace ET
             }
 
             obj.transform.parent = parent;
+            obj.name = type;
             return obj;
         }
 
 
-        public void Recycle(GameObject obj, string type)
+        public void Recycle(GameObject obj)
         {
             GameObjectQueue queue;
-            if (!this.dictionary.TryGetValue(type, out queue))
+            if (!this.dictionary.TryGetValue(obj.name, out queue))
             {
-                queue = new GameObjectQueue(type);
+                queue = new GameObjectQueue(obj.name);
 
 #if UNITY_EDITOR && VIEWGO
                 if (queue.ViewGO != null)
@@ -110,7 +113,7 @@ namespace ET
                     queue.ViewGO.name = $"{type.Name}s";
                 }
 #endif
-                this.dictionary.Add(type, queue);
+                this.dictionary.Add(obj.name, queue);
             }
 
 #if UNITY_EDITOR && VIEWGO
