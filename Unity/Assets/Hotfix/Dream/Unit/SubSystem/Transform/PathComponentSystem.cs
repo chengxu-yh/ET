@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ET
 {
@@ -71,7 +70,7 @@ namespace ET
             {
                 self.CancellationTokenSource = cancellationToken;
             }
-            
+
             // 新数据初始化
             for (int i = 0; i < paths.Length; ++i)
             {
@@ -88,6 +87,14 @@ namespace ET
             self.CancellationTokenSource = null;
 
             return res;
+        }
+
+        public static void StopMove(this PathComponent self)
+        {
+            self.Path.List.Clear();
+
+            // 取消之前的移动协程
+            self.CancellationTokenSource?.Cancel();
         }
     }
 }

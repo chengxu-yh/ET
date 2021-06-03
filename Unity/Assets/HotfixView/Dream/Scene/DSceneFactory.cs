@@ -5,7 +5,11 @@ namespace ET
         public static Scene CreateZoneScene(int zone, string name)
         {
             Scene zoneScene = EntitySceneFactory.CreateScene(Game.IdGenerater.GenerateId(), zone, SceneType.Zone, name, Game.Scene);
-            
+
+            ResourcesComponent.Instance.LoadBundle("Role.unity3d");
+            ResourcesComponent.Instance.LoadBundle("Shell.unity3d");
+            ResourcesComponent.Instance.LoadBundle("Trap.unity3d");
+
             zoneScene.AddComponent<ZoneSceneFlagComponent>();
             zoneScene.AddComponent<NetKcpComponent>();
             zoneScene.AddComponent<SceneChangeComponent>();

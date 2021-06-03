@@ -15,7 +15,7 @@ namespace ET
         {
             UShellConfig config = shell.GetComponent<UShellConfigComponent>().RoleConfig;
 
-            GameObject go = shell.AddComponent<DGameObjectComponent>().Init("Unit.unity3d", "Unit", config.Model, GlobalComponent.Instance.Unit);
+            GameObject go = shell.AddComponent<DGameObjectComponent>().Init("Shell.unity3d", "Shell", config.Model, GlobalComponent.Instance.Unit);
             go.AddComponent<ComponentView>().Component = shell;
             go.transform.position = shell.Position;
 

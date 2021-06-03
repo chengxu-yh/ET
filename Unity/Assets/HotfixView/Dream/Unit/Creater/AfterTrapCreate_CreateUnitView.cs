@@ -15,7 +15,7 @@ namespace ET
         {
             URoleConfig config = trap.GetComponent<URoleConfigComponent>().RoleConfig;
 
-            GameObject go = trap.AddComponent<DGameObjectComponent>().Init("Unit.unity3d", "Unit", config.Model, GlobalComponent.Instance.Unit);
+            GameObject go = trap.AddComponent<DGameObjectComponent>().Init("Trap.unity3d", "Trap", config.Model, GlobalComponent.Instance.Unit);
             go.AddComponent<ComponentView>().Component = trap;
             go.transform.position = trap.Position;
 

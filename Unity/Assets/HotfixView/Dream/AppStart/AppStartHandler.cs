@@ -28,8 +28,6 @@ namespace ET
 
             Game.Scene.AddComponent<AIDispatcherComponent>();
 
-            ResourcesComponent.Instance.LoadBundle("unit.unity3d");
-
             Scene zoneScene = DSceneFactory.CreateZoneScene(1, "Process");
 
             await Game.EventSystem.Publish(new AppEventType.AppStartInitFinish() { ZoneScene = zoneScene });
