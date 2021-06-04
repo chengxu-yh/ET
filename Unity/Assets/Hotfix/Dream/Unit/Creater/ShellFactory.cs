@@ -11,12 +11,14 @@ namespace ET
             // 位置信息
             shell.Position = new Vector3(unitInfo.PX, unitInfo.PY, unitInfo.PZ);
             shell.Rotation = new Quaternion(unitInfo.RX, unitInfo.RY, unitInfo.RZ, unitInfo.RW);
+            // 类型信息
+            shell.AddComponent<UnitTypeComponent, UnitType>(UnitType.UnitShell);
             // 配置信息
             shell.AddComponent<UShellConfigComponent, int>(unitInfo.ConfigId);
             // 阵营信息
-            shell.AddComponent<CampComponent, long, int>(unitInfo.GamerId, unitInfo.Camp);
+            shell.AddComponent<CampComponent, long, CampType>(unitInfo.GamerId, (CampType)unitInfo.Camp);
             // 数值信息
-            InitShellNumberic(shell);
+            ShellHelper.InitShellNumberic(shell);
 
             // 触发创建完成事件
             Game.EventSystem.Publish(new AppEventType.AfterShellCreate() { Unit = shell }).Coroutine();
@@ -24,13 +26,6 @@ namespace ET
             return shell;
         }
 
-        private static void InitShellNumberic(DUnit shell)
-        {
-            NumericComponent numeric = shell.AddComponent<NumericComponent>();
-            UShellConfig config = shell.GetComponent<UShellConfigComponent>().RoleConfig;
-
-            // 速度
-            numeric.Set(NumericType.SpeedBase, config.MoveSpeed);
-        }
+        
     }
 }

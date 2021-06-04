@@ -17,21 +17,35 @@ namespace ET
 
                 // 3 创建场景元素
 
-                // 4 创建角色
-                DUnitInfo roleinfo = new DUnitInfo();
-                roleinfo.GamerId = zoneScene.Domain.GetComponent<GamerComponent>().myGamer.Id;
-                roleinfo.UnitId = IdGenerater.Instance.GenerateUnitId(0);
-                roleinfo.ConfigId = 1001;
-                roleinfo.Camp = (int)(CampType.CampRed);
-                roleinfo.PX = 0;
-                roleinfo.PY = 0;
-                roleinfo.PZ = 0;
-                roleinfo.RX = 0;
-                roleinfo.RY = 0;
-                roleinfo.RZ = 0;
-                roleinfo.RW = 1;
+                // 4 创建城堡
+                DUnitInfo roleinfo1 = new DUnitInfo();
+                roleinfo1.GamerId = zoneScene.Domain.GetComponent<GamerComponent>().myGamer.Id;
+                roleinfo1.UnitId = IdGenerater.Instance.GenerateUnitId(0);
+                roleinfo1.ConfigId = 1001;
+                roleinfo1.Camp = (int)(CampType.CampRed);
+                roleinfo1.PX = 25;
+                roleinfo1.PY = 0;
+                roleinfo1.PZ = 0;
+                roleinfo1.RX = 0;
+                roleinfo1.RY = 0;
+                roleinfo1.RZ = 0;
+                roleinfo1.RW = 1;
+                TowerFactory.Create(zoneScene.Domain, roleinfo1);
 
-                RoleFactory.Create(zoneScene.Domain, roleinfo);
+                DUnitInfo roleinfo2 = new DUnitInfo();
+                roleinfo2.GamerId = zoneScene.Domain.GetComponent<GamerComponent>().myGamer.Id;
+                roleinfo2.UnitId = IdGenerater.Instance.GenerateUnitId(0);
+                roleinfo2.ConfigId = 1001;
+                roleinfo2.Camp = (int)(CampType.CampGreen);
+                roleinfo2.PX = -25;
+                roleinfo2.PY = 0;
+                roleinfo2.PZ = 0;
+                roleinfo2.RX = 0;
+                roleinfo2.RY = 0;
+                roleinfo2.RZ = 0;
+                roleinfo2.RW = 1;
+
+                TowerFactory.Create(zoneScene.Domain, roleinfo2);
 
                 // 5 通知成功
                 //await Game.EventSystem.Publish(new AppEventType.EnterLevelFinish());

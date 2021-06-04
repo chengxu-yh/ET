@@ -13,9 +13,11 @@
 		// 血量
 	    Hp = 1001,
 	    HpBase = Hp * 10 + 1,
+		HpAdd = Hp * 10 + 2,
+		HpPct = Hp * 10 + 3,
 
 		// 最大血量
-	    MaxHp = 1002,
+		MaxHp = 1002,
 	    MaxHpBase = MaxHp * 10 + 1,
 	    MaxHpAdd = MaxHp * 10 + 2,
 	    MaxHpPct = MaxHp * 10 + 3,

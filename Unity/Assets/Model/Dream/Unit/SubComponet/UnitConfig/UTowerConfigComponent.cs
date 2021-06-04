@@ -12,7 +12,7 @@
     {
         public int ConfigId; //配置表id
 
-        public UTowerConfig RoleConfig => UTowerConfigCategory.Instance.Get(this.ConfigId);
+        public UTowerConfig TowerConfig => UTowerConfigCategory.Instance.Get(this.ConfigId);
 
     }
 }

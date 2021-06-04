@@ -1,8 +1,8 @@
 ﻿namespace ET
 {
-    public class CampComponentAwakeSystem : AwakeSystem<CampComponent, long, int>
+    public class CampComponentAwakeSystem : AwakeSystem<CampComponent, long, CampType>
     {
-        public override void Awake(CampComponent self,long gamerid, int camp)
+        public override void Awake(CampComponent self,long gamerid, CampType camp)
         {
             self.CtrlGamerId = gamerid;
             self.Camp = camp;
@@ -13,6 +13,6 @@
     {
         public long CtrlGamerId { get; set; } 
 
-        public int Camp { get; set; }
+        public CampType Camp { get; set; }
     }
 }

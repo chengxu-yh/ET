@@ -99,13 +99,7 @@ namespace ET
 		[ProtoMember(12, IsRequired  = true)]
 		public int HPDamage { get; set; }
 		[ProtoMember(13, IsRequired  = true)]
-		public int HPRegain { get; set; }
-		[ProtoMember(14, IsRequired  = true)]
 		public int HP { get; set; }
-		[ProtoMember(15, IsRequired  = true)]
-		public int AngerRegain { get; set; }
-		[ProtoMember(16, IsRequired  = true)]
-		public int Anger { get; set; }
 
 
 		[ProtoAfterDeserialization]

@@ -666,6 +666,12 @@ namespace ET
 		[ProtoMember(11)]
 		public int Camp { get; set; }
 
+		[ProtoMember(12)]
+		public int Count { get; set; }
+
+		[ProtoMember(13)]
+		public long TargetId { get; set; }
+
 	}
 
 /// <summary>

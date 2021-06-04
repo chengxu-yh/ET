@@ -13,7 +13,7 @@ namespace ET
 
         private async ETTask CreateShellViewAsync(DUnit shell)
         {
-            UShellConfig config = shell.GetComponent<UShellConfigComponent>().RoleConfig;
+            UShellConfig config = shell.GetComponent<UShellConfigComponent>().ShellConfig;
 
             GameObject go = shell.AddComponent<DGameObjectComponent>().Init("Shell.unity3d", "Shell", config.Model, GlobalComponent.Instance.Unit);
             go.AddComponent<ComponentView>().Component = shell;

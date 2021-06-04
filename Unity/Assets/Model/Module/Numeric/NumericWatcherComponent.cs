@@ -58,16 +58,16 @@ namespace ET
 			}
 		}
 
-		public void Run(NumericType numericType, long id, long value)
+		public void Run(EventType.NumbericChange arg)
 		{
 			List<INumericWatcher> list;
-			if (!this.allWatchers.TryGetValue(numericType, out list))
+			if (!this.allWatchers.TryGetValue(arg.NumericType, out list))
 			{
 				return;
 			}
 			foreach (INumericWatcher numericWatcher in list)
 			{
-				numericWatcher.Run(id, value);
+				numericWatcher.Run(arg);
 			}
 		}
 	}

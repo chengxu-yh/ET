@@ -13,7 +13,7 @@ namespace ET
 
         private async ETTask CreateTowerViewAsync(DUnit role)
         {
-            UTowerConfig config = role.GetComponent<UTowerConfigComponent>().RoleConfig;
+            UTowerConfig config = role.GetComponent<UTowerConfigComponent>().TowerConfig;
 
             GameObject go = role.AddComponent<DGameObjectComponent>().Init("Tower.unity3d", "Tower", config.Model, GlobalComponent.Instance.Unit);
             go.AddComponent<ComponentView>().Component = role;

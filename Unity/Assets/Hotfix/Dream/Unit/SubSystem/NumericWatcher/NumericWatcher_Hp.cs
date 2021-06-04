@@ -6,7 +6,7 @@
 	[NumericWatcher(NumericType.Hp)]
 	public class NumericWatcher_Hp : INumericWatcher
 	{
-		public void Run(long id, long value)
+		public void Run(EventType.NumbericChange args)
 		{
 		}
 	}

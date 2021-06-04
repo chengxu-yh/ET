@@ -322,6 +322,8 @@ message DUnitInfo
 	float RZ = 9;
 	float RW = 10;
 	int32 Camp = 11;
+	int32 Count = 12;
+	int64 TargetId = 13;
 }
 
 /// <summary>

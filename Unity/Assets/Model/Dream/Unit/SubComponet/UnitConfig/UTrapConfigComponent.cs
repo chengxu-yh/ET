@@ -12,7 +12,7 @@
     {
         public int ConfigId; //配置表id
 
-        public UTrapConfig RoleConfig => UTrapConfigCategory.Instance.Get(this.ConfigId);
+        public UTrapConfig TrapConfig => UTrapConfigCategory.Instance.Get(this.ConfigId);
 
     }
 }

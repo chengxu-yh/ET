@@ -4,7 +4,7 @@ namespace ET
 {
     public static class OperaHelper
     {
-        public static DUnit PickUp(string layer)
+        public static DUnit PickUpUnit(string layer)
         {
             int layerMask = LayerMask.GetMask(layer);
 
@@ -13,6 +13,10 @@ namespace ET
             if (Physics.Raycast(ray, out hit, 1000, layerMask))
             {
                 ComponentView unitview = hit.collider.gameObject.GetComponent<ComponentView>();
+                if (unitview == null)
+                {
+                    unitview = hit.transform.parent.gameObject.GetComponent<ComponentView>();
+                }
 
                 if (unitview != null)
                 {

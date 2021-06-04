@@ -6,7 +6,7 @@
 	[NumericWatcher(NumericType.AttackSpeed)]
 	public class NumericWatcher_AttackSpeed : INumericWatcher
 	{
-		public void Run(long id, long value)
+		public void Run(EventType.NumbericChange args)
 		{
 		}
 	}

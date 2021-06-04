@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3267312004946253683}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Extern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6496771618031873903}
   - component: {fileID: 4380141409686390187}
   - component: {fileID: 2717539742170884721}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,8 +139,8 @@ GameObject:
   m_Component:
   - component: {fileID: 741946347067012270}
   - component: {fileID: 9121383860053599414}
-  m_Layer: 0
-  m_Name: Tower_Demo
+  m_Layer: 10
+  m_Name: Tower_One_Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6839843464177785331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WaistPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5087070653724263157}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7444544204519519790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeadPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

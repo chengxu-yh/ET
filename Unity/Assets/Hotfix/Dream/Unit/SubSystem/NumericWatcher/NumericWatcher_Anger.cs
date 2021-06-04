@@ -6,7 +6,7 @@
 	[NumericWatcher(NumericType.Anger)]
 	public class NumericWatcher_Anger : INumericWatcher
 	{
-		public void Run(long id, long value)
+		public void Run(EventType.NumbericChange args)
 		{
 		}
 	}

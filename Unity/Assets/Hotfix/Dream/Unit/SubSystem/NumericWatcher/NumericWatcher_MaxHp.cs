@@ -6,7 +6,7 @@
 	[NumericWatcher(NumericType.MaxHp)]
 	public class NumericWatcher_MaxHp : INumericWatcher
 	{
-		public void Run(long id, long value)
+		public void Run(EventType.NumbericChange args)
 		{
 		}
 	}

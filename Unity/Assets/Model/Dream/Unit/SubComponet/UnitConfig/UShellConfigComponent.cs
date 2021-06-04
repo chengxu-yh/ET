@@ -12,7 +12,7 @@
     {
         public int ConfigId; //配置表id
 
-        public UShellConfig RoleConfig => UShellConfigCategory.Instance.Get(this.ConfigId);
+        public UShellConfig ShellConfig => UShellConfigCategory.Instance.Get(this.ConfigId);
 
 
     }
