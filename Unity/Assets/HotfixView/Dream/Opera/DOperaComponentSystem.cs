@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -113,8 +112,6 @@ namespace ET
             {
                 return;
             }
-
-            Debug.Log("Add");
             self.SelectedTowers.Add(unit);
         }
 
@@ -157,12 +154,9 @@ namespace ET
 
         public static void TrigerOperaEvent(this DOperaComponent self)
         {
-            Debug.Log("TrigerOperaEvent");
-
             // 没有操作对象 || 没有目标对象
             if (self.SelectedTowers.Count == 0 || self.TargetTower == null)
             {
-                Debug.Log($"TrigerOperaEvent SelectedTowers {self.SelectedTowers.Count}");
                 return;
             }
 
@@ -171,12 +165,10 @@ namespace ET
             {
                 if (tower == self.TargetTower)
                 {
-                    Debug.Log("continue");
                     continue;
                 }
 
                 int roleCount = TowerHelper.GetBattleRoleCount(tower);
-                Debug.Log($"roleCount：{roleCount}");
                 if (roleCount > 0)
                 {
                     TowerHelper.SummonRoles(tower, self.MyGamer.Id, roleCount, self.TargetTower.Id);
