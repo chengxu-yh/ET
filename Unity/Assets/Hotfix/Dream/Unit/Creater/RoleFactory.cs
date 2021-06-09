@@ -25,6 +25,8 @@ namespace ET
             role.AddComponent<PathComponent>();
             // 数值信息
             RoleHelper.InitRoleNumberic(role);
+            // 技能组件
+            role.AddComponent<SkillComponent>();
 
             // 触发创建完成事件
             Game.EventSystem.Publish(new AppEventType.AfterRoleCreate() { Unit = role }).Coroutine();
