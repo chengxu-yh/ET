@@ -56,5 +56,34 @@
 		AlertRadiusAdd = AlertRadius * 10 + 2,
 		AlertRadiusPct = AlertRadius * 10 + 3,
 
+
+		// 技能数值属性--------------------------
+		// 最大攻击半径
+		MaxRadius = 1101,
+		MaxRadiusBase = MaxRadius * 10 + 1,
+		MaxRadiusAdd = MaxRadius * 10 + 2,
+		MaxRadiusPct = MaxRadius * 10 + 3,
+
+		// 伤害区域缩放
+		ScaleX = 1102,
+		ScaleXBase = ScaleX * 10 + 1,
+		ScaleXAdd = ScaleX * 10 + 2,
+		ScaleXPct = ScaleX * 10 + 3,
+
+		ScaleY = 1102,
+		ScaleYBase = ScaleY * 10 + 1,
+		ScaleYAdd = ScaleY * 10 + 2,
+		ScaleYPct = ScaleY * 10 + 3,
+
+		ScaleZ = 1102,
+		ScaleZBase = ScaleZ * 10 + 1,
+		ScaleZAdd = ScaleZ * 10 + 2,
+		ScaleZPct = ScaleZ * 10 + 3,
+
+		// 基础时常
+		SkillTime = 1103,
+		SkillTimeBase = SkillTime * 10 + 1,
+		SkillTimeAdd = SkillTime * 10 + 2,
+		SkillTimePct = SkillTime * 10 + 3,
 	}
 }

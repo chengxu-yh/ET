@@ -79,15 +79,21 @@ namespace ET
 		public string Desc { get; set; }
 		[ProtoMember(4, IsRequired  = true)]
 		public string Icon { get; set; }
-		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(5, IsRequired  = true)]
-		public float MaxRadius { get; set; }
+		public int SkillLoop { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
 		[ProtoMember(6, IsRequired  = true)]
-		public float SkillTime { get; set; }
+		public float MaxRadius { get; set; }
 		[ProtoMember(7, IsRequired  = true)]
-		public string SkillTree { get; set; }
+		public string DamageType { get; set; }
 		[ProtoMember(8, IsRequired  = true)]
+		public string DamageScale { get; set; }
+		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
+		[ProtoMember(9, IsRequired  = true)]
+		public float SkillTime { get; set; }
+		[ProtoMember(10, IsRequired  = true)]
+		public string SkillTree { get; set; }
+		[ProtoMember(11, IsRequired  = true)]
 		public string LevelData { get; set; }
 
 

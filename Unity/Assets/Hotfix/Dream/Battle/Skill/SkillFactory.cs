@@ -8,7 +8,11 @@ namespace ET
         {
             Skill skill = EntityFactory.CreateWithParent<Skill, int>(parent, configid);
 
+            skill.InitProperty();
+
             return skill;
         }
+
+        
     }
 }

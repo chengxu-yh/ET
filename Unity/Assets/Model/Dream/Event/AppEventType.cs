@@ -1,4 +1,6 @@
-﻿namespace ET
+﻿using UnityEngine;
+
+namespace ET
 {
     namespace AppEventType
     {
@@ -68,6 +70,47 @@
         public struct MoveStop
         {
             public DUnit Unit;
+        }
+
+        public struct AfterSkillCreate
+        {
+            public Skill Skill;
+        }
+
+        public struct SkillRadiusEnter
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
+        }
+
+        public struct SkillRadiusExit
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
+        }
+
+        public struct SkillDamageEnter
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
+        }
+
+        public struct SkillDamageExit
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
+        }
+
+        public struct AIGuardEnter
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
+        }
+
+        public struct AIGuardExit
+        {
+            public GameObject SelfGameObject;
+            public GameObject OtherGameObject;
         }
     }
 }

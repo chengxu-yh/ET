@@ -34,7 +34,7 @@ namespace ET
 		{
 ///<<< BEGIN WRITING YOUR CODE DoAttack
             Debug.Log($"DoAttack:{skillindex}");
-            return behaviac.EBTStatus.BT_INVALID;
+            return behaviac.EBTStatus.BT_RUNNING;
             ///<<< END WRITING YOUR CODE
 		}
 

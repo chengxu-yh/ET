@@ -1216,9 +1216,9 @@ namespace behaviac
             }
 #endif
         }
-
+#if !BEHAVIAC_RELEASE
         private int m_frame = 0;
-
+#endif
         protected void LogFrames()
         {
 #if !BEHAVIAC_RELEASE
