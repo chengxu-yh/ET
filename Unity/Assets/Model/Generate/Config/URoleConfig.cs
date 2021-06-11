@@ -82,23 +82,25 @@ namespace ET
 		[ProtoMember(5, IsRequired  = true)]
 		public string Model { get; set; }
 		[ProtoMember(6, IsRequired  = true)]
+		public string RoleType { get; set; }
+		[ProtoMember(7, IsRequired  = true)]
 		public string AI { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(7, IsRequired  = true)]
-		public float AlertRadius { get; set; }
 		[ProtoMember(8, IsRequired  = true)]
+		public float AlertRadius { get; set; }
+		[ProtoMember(9, IsRequired  = true)]
 		public string Skills { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(9, IsRequired  = true)]
+		[ProtoMember(10, IsRequired  = true)]
 		public float AttackSpeed { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(10, IsRequired  = true)]
-		public float MoveSpeed { get; set; }
 		[ProtoMember(11, IsRequired  = true)]
-		public int Defense { get; set; }
+		public float MoveSpeed { get; set; }
 		[ProtoMember(12, IsRequired  = true)]
-		public int HPDamage { get; set; }
+		public int Defense { get; set; }
 		[ProtoMember(13, IsRequired  = true)]
+		public int HPDamage { get; set; }
+		[ProtoMember(14, IsRequired  = true)]
 		public int HP { get; set; }
 
 

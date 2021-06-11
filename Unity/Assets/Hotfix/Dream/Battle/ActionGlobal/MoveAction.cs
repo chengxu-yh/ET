@@ -5,7 +5,7 @@ namespace ET
 {
     public static class DMoveAction
     {
-        public static async ETTask<int> MoveActionAsync(this DUnit unit, Vector3 targetPos, ETCancellationToken cancellationToken = null)
+        public static async ETTask<int> MoveActionAsync(DUnit unit, Vector3 targetPos, ETCancellationToken cancellationToken = null)
         {
             NavMeshPath meshPath = new NavMeshPath();
 
@@ -13,6 +13,11 @@ namespace ET
 
             if (unit.DomainScene().GetComponent<PVPComponent>().bePVP)
             {
+                if (OperationerComponentSystem.IsOperationer(unit) == false)
+                {
+                    return WaitTypeError.Success;
+                }
+
                 // PVP 发送移动消息，封包发送
                 C2M_DPathfindingResult msg = new C2M_DPathfindingResult();
                 msg.Id = unit.Id;
@@ -37,11 +42,11 @@ namespace ET
             }
             else
             {
-                return await unit.MoveActionImpAsync(meshPath.corners, unit.Position, cancellationToken);
+                return await DMoveAction.MoveActionImpAsync(unit, meshPath.corners, unit.Position, cancellationToken);
             }
         }
 
-        public static async ETTask<int> MoveActionImpAsync(this DUnit unit, Vector3[] paths, Vector3 serverpos, ETCancellationToken cancellationToken = null)
+        public static async ETTask<int> MoveActionImpAsync(DUnit unit, Vector3[] paths, Vector3 serverpos, ETCancellationToken cancellationToken = null)
         {
             PathComponent pathComponent = unit.GetComponent<PathComponent>();
             if (await pathComponent.StartMove(paths, serverpos, cancellationToken))

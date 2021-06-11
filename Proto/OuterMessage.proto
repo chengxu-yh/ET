@@ -324,6 +324,7 @@ message DUnitInfo
 	int32 Camp = 11;
 	int32 Count = 12;
 	int64 TargetId = 13;
+	int64 OperationerId = 14;
 }
 
 /// <summary>
@@ -361,4 +362,31 @@ message M2C_DPathfindingResult // IActorMessage
 	repeated float Xs = 5;
 	repeated float Ys = 6;
 	repeated float Zs = 7;
+}
+
+/// <summary>
+/// 属性变更
+/// </summary>
+message C2M_UnitNumeric // IActorLocationMessage
+{
+	int32 RpcId = 90;
+	int64 ActorId = 93;
+		
+	int64 Id = 1;
+	int32 NumericType = 2;
+	bool BeInt = 3;
+	float Val = 4;
+}
+
+/// <summary>
+/// 属性变更
+/// </summary>
+message M2C_UnitNumeric // IActorMessage
+{
+	int64 ActorId = 93;
+	
+	int64 Id = 1;
+	int32 NumericType = 2;
+	bool BeInt = 3;
+	float Val = 4;
 }

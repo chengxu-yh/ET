@@ -112,5 +112,6 @@ namespace ET
             public GameObject SelfGameObject;
             public GameObject OtherGameObject;
         }
+
     }
 }

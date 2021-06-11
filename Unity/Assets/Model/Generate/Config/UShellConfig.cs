@@ -82,17 +82,19 @@ namespace ET
 		[ProtoMember(5, IsRequired  = true)]
 		public string AI { get; set; }
 		[ProtoMember(6, IsRequired  = true)]
-		public string TriggerEffect { get; set; }
+		public string Skills { get; set; }
 		[ProtoMember(7, IsRequired  = true)]
+		public string TriggerEffect { get; set; }
+		[ProtoMember(8, IsRequired  = true)]
 		public int TriggerMaxCount { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(8, IsRequired  = true)]
+		[ProtoMember(9, IsRequired  = true)]
 		public float MoveSpeed { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(9, IsRequired  = true)]
+		[ProtoMember(10, IsRequired  = true)]
 		public float Gravity { get; set; }
 		[BsonRepresentation(BsonType.Double, AllowTruncation = true)]
-		[ProtoMember(10, IsRequired  = true)]
+		[ProtoMember(11, IsRequired  = true)]
 		public float LifeTime { get; set; }
 
 

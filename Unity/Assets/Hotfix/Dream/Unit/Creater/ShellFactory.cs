@@ -15,6 +15,8 @@ namespace ET
             shell.AddComponent<UnitTypeComponent, UnitType>(UnitType.UnitShell);
             // 配置信息
             shell.AddComponent<UShellConfigComponent, int>(unitInfo.ConfigId);
+            // 运算者
+            shell.AddComponent<OperationerComponent, long>(unitInfo.OperationerId);
             // 阵营信息
             shell.AddComponent<CampComponent, long, CampType>(unitInfo.GamerId, (CampType)unitInfo.Camp);
             // 数值信息

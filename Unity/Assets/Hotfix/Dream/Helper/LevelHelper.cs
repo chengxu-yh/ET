@@ -30,6 +30,7 @@ namespace ET
                 roleinfo1.RY = 0;
                 roleinfo1.RZ = 0;
                 roleinfo1.RW = 1;
+                roleinfo1.OperationerId = zoneScene.Domain.GetComponent<GamerComponent>().myGamer.Id;
                 TowerFactory.Create(zoneScene.Domain, roleinfo1);
 
                 DUnitInfo roleinfo2 = new DUnitInfo();
@@ -44,7 +45,7 @@ namespace ET
                 roleinfo2.RY = 0;
                 roleinfo2.RZ = 0;
                 roleinfo2.RW = 1;
-
+                roleinfo2.OperationerId = zoneScene.Domain.GetComponent<GamerComponent>().myGamer.Id;
                 TowerFactory.Create(zoneScene.Domain, roleinfo2);
 
                 // 5 通知成功

@@ -8,6 +8,62 @@ using System.Collections.Generic;
 
 namespace behaviac
 {
+	public class CompareValue_ET_SkillTargetCondition : ICompareValue<ET.SkillTargetCondition>
+	{
+		public override bool Equal(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs == rhs;
+		}
+		public override bool NotEqual(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs != rhs;
+		}
+		public override bool Greater(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs > rhs;
+		}
+		public override bool GreaterEqual(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs >= rhs;
+		}
+		public override bool Less(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs < rhs;
+		}
+		public override bool LessEqual(ET.SkillTargetCondition lhs, ET.SkillTargetCondition rhs)
+		{
+			return lhs <= rhs;
+		}
+	}
+
+	public class CompareValue_ET_UnitState : ICompareValue<ET.UnitState>
+	{
+		public override bool Equal(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs == rhs;
+		}
+		public override bool NotEqual(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs != rhs;
+		}
+		public override bool Greater(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs > rhs;
+		}
+		public override bool GreaterEqual(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs >= rhs;
+		}
+		public override bool Less(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs < rhs;
+		}
+		public override bool LessEqual(ET.UnitState lhs, ET.UnitState rhs)
+		{
+			return lhs <= rhs;
+		}
+	}
+
 
 	public class BehaviorLoaderImplement : BehaviorLoader
 	{
@@ -188,7 +244,7 @@ namespace behaviac
 
 		public override bool Load()
 		{
-			AgentMeta.TotalSignature = 1301218934;
+			AgentMeta.TotalSignature = 2349420332;
 
 			AgentMeta meta;
 
@@ -227,6 +283,10 @@ namespace behaviac
 			AgentMeta.Register<behaviac.Agent>("behaviac.Agent");
 			AgentMeta.Register<ET.SkillAgent>("ET.SkillAgent");
 			AgentMeta.Register<ET.AIAgent>("ET.AIAgent");
+			AgentMeta.Register<ET.SkillTargetCondition>("ET.SkillTargetCondition");
+			ComparerRegister.RegisterType<ET.SkillTargetCondition, CompareValue_ET_SkillTargetCondition>();
+			AgentMeta.Register<ET.UnitState>("ET.UnitState");
+			ComparerRegister.RegisterType<ET.UnitState, CompareValue_ET_UnitState>();
 
 			Agent.RegisterInstanceName<ET.SkillAgent>("ET::NormalAttack");
 			return true;
@@ -237,6 +297,8 @@ namespace behaviac
 			AgentMeta.UnRegister<behaviac.Agent>("behaviac.Agent");
 			AgentMeta.UnRegister<ET.SkillAgent>("ET.SkillAgent");
 			AgentMeta.UnRegister<ET.AIAgent>("ET.AIAgent");
+			AgentMeta.UnRegister<ET.SkillTargetCondition>("ET.SkillTargetCondition");
+			AgentMeta.UnRegister<ET.UnitState>("ET.UnitState");
 
 			Agent.UnRegisterInstanceName<ET.SkillAgent>("ET::NormalAttack");
 			return true;

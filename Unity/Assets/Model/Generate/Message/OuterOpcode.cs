@@ -41,5 +41,7 @@ namespace ET
 		 public const ushort DUnitInfo = 20037;
 		 public const ushort C2M_DPathfindingResult = 20038;
 		 public const ushort M2C_DPathfindingResult = 20039;
+		 public const ushort C2M_UnitNumeric = 20040;
+		 public const ushort M2C_UnitNumeric = 20041;
 	}
 }

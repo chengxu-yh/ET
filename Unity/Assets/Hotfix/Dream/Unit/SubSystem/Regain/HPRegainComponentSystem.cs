@@ -24,7 +24,8 @@ namespace ET
                 long disTime = TimeHelper.ClientNow() - self.StartMilliseconds;
                 if (disTime > 1000)
                 {
-                    NumericComponent nm = self.GetParent<DUnit>().GetComponent<NumericComponent>();
+                    DUnit tower = self.GetParent<DUnit>();
+                    NumericComponent nm = tower.GetComponent<NumericComponent>();
                     int hpMax = nm.GetAsInt(NumericType.MaxHp);
                     int hp = nm.GetAsInt(NumericType.Hp);
                     // 到最大值，不再恢复
@@ -42,8 +43,9 @@ namespace ET
 
                     // 设置增量值
                     int hpAdd = nm.GetAsInt(NumericType.HpAdd) + hpRegain;
-                    nm.Set(NumericType.HpAdd, hpAdd);
+                    NumericAction.SetUnitNumericAction(tower, NumericType.HpAdd, hpAdd);
 
+                    // 矫正剩余时间
                     int extTime = (int)disTime % 1000;
                     self.StartMilliseconds = TimeHelper.ClientNow() - extTime;
                 }

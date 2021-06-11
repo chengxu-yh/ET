@@ -17,7 +17,7 @@ namespace ET
 				list.List.Add(new Vector3(message.Xs[i], message.Ys[i], message.Zs[i]));
 			}
 
-			await unit.MoveActionImpAsync(list.List.ToArray(), servierpos);
+			await DMoveAction.MoveActionImpAsync(unit, list.List.ToArray(), servierpos);
 		}
 	}
 }

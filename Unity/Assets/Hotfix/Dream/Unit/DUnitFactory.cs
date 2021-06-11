@@ -6,8 +6,9 @@
         {
             DUnit unit = EntityFactory.CreateWithId<DUnit>(domain, unitid);
 	        unit.AddComponent<ObjectWait>();
+            unit.AddComponent<UnitStateComponent, int>((int)UnitState.Born);
 
-	        DUnitComponent unitComponent = domain.GetComponent<DUnitComponent>();
+            DUnitComponent unitComponent = domain.GetComponent<DUnitComponent>();
             unitComponent.Add(unit);
 
             return unit;

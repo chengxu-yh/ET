@@ -52,14 +52,33 @@ namespace ET
         public static void InitSkills(this SkillComponent self)
         {
             DUnit role = self.GetParent<DUnit>();
-            URoleConfigComponent configComponent = role.GetComponent<URoleConfigComponent>();
-
-            JsonData parameter = JsonMapper.ToObject(configComponent.RoleConfig.Skills);
-            JsonData skills = parameter["skills"];
-            for (int i = 0; i < skills.Count; i++)
+            UnitTypeComponent typeComponent = role.GetComponent<UnitTypeComponent>();
+            JsonData parameter = null;
+            if (typeComponent.UnitType == UnitType.UnitRole)
             {
-                int skillid = (int)skills[i];
-                self.AddSkill(skillid);
+                parameter = JsonMapper.ToObject(role.GetComponent<URoleConfigComponent>().RoleConfig.Skills);
+            }
+            else if (typeComponent.UnitType == UnitType.UnitTower)
+            {
+                parameter = JsonMapper.ToObject(role.GetComponent<UTowerConfigComponent>().TowerConfig.Skills);
+            }
+            else if (typeComponent.UnitType == UnitType.UnitTrap)
+            {
+                parameter = JsonMapper.ToObject(role.GetComponent<UTrapConfigComponent>().TrapConfig.Skills);
+            }
+            else
+            {
+                parameter = JsonMapper.ToObject(role.GetComponent<UShellConfigComponent>().ShellConfig.Skills);
+            }
+
+            JsonData skills = parameter["skills"];
+            if (skills != null)
+            {
+                for (int i = 0; i < skills.Count; i++)
+                {
+                    int skillid = (int)skills[i];
+                    self.AddSkill(skillid);
+                }
             }
         }
 

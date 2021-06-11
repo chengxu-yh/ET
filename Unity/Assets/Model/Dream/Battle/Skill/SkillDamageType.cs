@@ -15,18 +15,18 @@
         {
             SkillDamageType type = SkillDamageType.Target;
 
-            switch (strtype)
+            switch (strtype.ToLower())
             {
-                case "Target":
+                case "target":
                     type = SkillDamageType.Target;
                     break;
-                case "TargetArea":
+                case "targetarea":
                     type = SkillDamageType.TargetArea;
                     break;
-                case "CasterArea":
+                case "casterarea":
                     type = SkillDamageType.CasterArea;
                     break;
-                case "CasterFront":
+                case "casterfront":
                     type = SkillDamageType.CasterFront;
                     break;
             }

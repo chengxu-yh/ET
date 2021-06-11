@@ -4,11 +4,11 @@
     {
         CampNone = 0,
         CampRed = 1,
-        CampGreen = 1 << 1,
-        CampBlue = 1 << 2,
-        CampYellow = 1 << 3,
-        CampPink = 1 << 4,
-        CampPurple = 1 << 5,
-        CampNeutral = ~0
+        CampGreen = 2,
+        CampBlue = 3,
+        CampYellow = 4,
+        CampPink = 5,
+        CampPurple = 6,
+        CampNeutral = 7
     }
 }

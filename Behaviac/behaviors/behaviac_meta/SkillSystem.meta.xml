@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <meta>
-  <types />
+  <types>
+    <enumtype Type="ET::SkillTargetCondition" Namespace="ET" IsCustomized="true" DisplayName="SkillTargetCondition" Desc="选取目标的条件">
+      <enum NativeValue="ET::MaxDistance" Value="MaxDistance" DisplayName="MaxDistance" Desc="最远距离" MemberValue="-1" />
+      <enum NativeValue="ET::MinDistance" Value="MinDistance" DisplayName="MinDistance" Desc="最近距离" MemberValue="-1" />
+    </enumtype>
+    <enumtype Type="ET::UnitState" Namespace="ET" IsCustomized="true" DisplayName="UnitState" Desc="角色状态">
+      <enum NativeValue="ET::Born" Value="Born" DisplayName="Born" Desc="出生" MemberValue="-1" />
+      <enum NativeValue="ET::Alive" Value="Alive" DisplayName="Alive" Desc="存活" MemberValue="-1" />
+      <enum NativeValue="ET::Death" Value="Death" DisplayName="Death" Desc="死亡" MemberValue="-1" />
+    </enumtype>
+  </types>
   <agents>
     <agent classfullname="behaviac::Agent" DisplayName="behaviac::Agent" Desc="behaviac::Agent" IsRefType="true" IsImplemented="true">
       <Method Name="VectorLength" DisplayName="VectorLength" Desc="VectorLength" Class="behaviac::Agent" ReturnType="int" ReturnTypeFullName="System.Int32" Static="true" Public="true" istask="false">

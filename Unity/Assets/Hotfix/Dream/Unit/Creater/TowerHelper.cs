@@ -71,6 +71,7 @@
             roleinfo.RW = tower.Rotation.w;
             roleinfo.Count = count;
             roleinfo.TargetId = targetid;
+            roleinfo.OperationerId = gamerid;
 
             RoleFactory.Create(tower.Domain, roleinfo);
 

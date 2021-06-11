@@ -15,6 +15,8 @@ namespace ET
             role.AddComponent<UnitTypeComponent, UnitType>(UnitType.UnitRole);
             // 配置信息
             role.AddComponent<URoleConfigComponent, int>(unitInfo.ConfigId);
+            // 运算者
+            role.AddComponent<OperationerComponent, long>(unitInfo.OperationerId);
             // 阵营信息
             role.AddComponent<CampComponent, long, CampType>(unitInfo.GamerId, (CampType)unitInfo.Camp);
             // 移动组件

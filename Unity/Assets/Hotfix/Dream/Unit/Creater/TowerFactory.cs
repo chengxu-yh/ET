@@ -15,6 +15,8 @@ namespace ET
             tower.AddComponent<UnitTypeComponent, UnitType>(UnitType.UnitTower);
             // 配置信息
             tower.AddComponent<UTowerConfigComponent, int>(unitInfo.ConfigId);
+            // 运算者
+            tower.AddComponent<OperationerComponent, long>(unitInfo.OperationerId);
             // 阵营信息
             tower.AddComponent<CampComponent, long, CampType>(unitInfo.GamerId, (CampType)unitInfo.Camp);
             // 数值信息

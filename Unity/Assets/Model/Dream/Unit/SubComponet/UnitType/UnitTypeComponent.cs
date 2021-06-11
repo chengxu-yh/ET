@@ -10,6 +10,6 @@
 
     public class UnitTypeComponent : Entity
     {
-        public UnitType UnitType; //配置表id
+        public UnitType UnitType; 
     }
 }

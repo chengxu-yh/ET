@@ -15,6 +15,8 @@ namespace ET
             trap.AddComponent<UnitTypeComponent, UnitType>(UnitType.UnitTrap);
             // 配置信息
             trap.AddComponent<UTrapConfigComponent, int>(unitInfo.ConfigId);
+            // 运算者
+            trap.AddComponent<OperationerComponent, long>(unitInfo.OperationerId);
             // 阵营信息
             trap.AddComponent<CampComponent, long, CampType>(unitInfo.GamerId, (CampType)unitInfo.Camp);
             // 旋转组件
